@@ -1,7 +1,7 @@
 <template>
     <div class="has-success" show.bind="successMessage != null">
         ${successMessage} Click 
-        <a href="">here</a>
+        <a route-href="route: login;">here</a>
         to login!
     </div>
     <form role="form" class="col-md-8" show.bind="successMessage == null" submit.delegate="save()">
