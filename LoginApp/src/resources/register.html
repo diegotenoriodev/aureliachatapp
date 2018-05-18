@@ -1,5 +1,10 @@
 <template>
-    <form role="form" class="col-md-8" submit.delegate="save()">
+    <div class="has-success" show.bind="successMessage != null">
+        ${successMessage} Click 
+        <a href="">here</a>
+        to login!
+    </div>
+    <form role="form" class="col-md-8" show.bind="successMessage == null" submit.delegate="save()">
         <div class="form-group">
             <label for="name" class="col-form-label">Name: </label>
             <input id="name" type="text" class="form-control" value.bind="name">
@@ -19,8 +24,10 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success">Save</button>
         </div>
-        <ul>
-            <li repeat.for="error of errors">${error}</li>
-        </ul>
+        <div class="form-group has-error" show.bind="errors.length > 0">
+            <ul>
+                <li repeat.for="error of errors">${error}</li>
+            </ul>
+        </div>
     </form>
 </template>

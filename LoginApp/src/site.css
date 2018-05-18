@@ -2,3 +2,25 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
+
+div[class*="has-"] {
+    border-radius: 5px;
+    padding: 15px;
+}
+
+div[class*="has-"] ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.has-error {
+    color: #dd4c4c;
+    background-color: bisque;
+}
+
+.has-success {
+    color: rgb(16, 141, 5);
+    background-color: rgb(205, 240, 202);
+    max-width: 60%;
+}

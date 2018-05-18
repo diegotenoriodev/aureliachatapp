@@ -8,13 +8,17 @@ export class Register {
     password: string;
     confirmPassword: string;
 
+    successMessage: string;
+
     private _errors: string[];
 
     get errors() : string[] {
         return this._errors;
     }
 
-    constructor(private api: API) { }
+    constructor(private api: API) { 
+        this.clean();
+    }
 
     validateFields() {
         this._errors = [];
@@ -40,6 +44,15 @@ export class Register {
         }
     }
 
+    clean() {
+        this.name = null;
+        this.email = null;
+        this.password = null;
+        this.confirmPassword = null;
+        this._errors = [];
+        this.successMessage = null;
+    }
+
     save() {
         console.log(this);
         this.validateFields();
@@ -53,12 +66,15 @@ export class Register {
                 this.password,
                 this.confirmPassword,
                 result => {
-                    if(!result.success) {
+                    if(result.success) {
+                        this.clean();
+                        this.successMessage = 'Register was created successifuly!';
+                    } else {
                         this._errors = result.errors;
                     }
                 }
             );
-            
+
         }
     }
 }
