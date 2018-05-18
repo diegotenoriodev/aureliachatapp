@@ -1,0 +1,26 @@
+<template>
+    <form role="form" class="col-md-8" submit.delegate="save()">
+        <div class="form-group">
+            <label for="name" class="col-form-label">Name: </label>
+            <input id="name" type="text" class="form-control" value.bind="name">
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-form-label">E-mail: </label>
+            <input type="email" id="email" class="form-control" value.bind="email">
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-form-label">Password: </label>
+            <input type="password" id="password" class="form-control" value.bind="password">
+        </div>
+        <div class="form-group">
+            <label for="confpassword" class="col-form-label">Confirm Password</label>
+            <input type="password" id="confpassword" class="form-control" value.bind="confirmPassword">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+        <ul>
+            <li repeat.for="error of errors">${error}</li>
+        </ul>
+    </form>
+</template>
